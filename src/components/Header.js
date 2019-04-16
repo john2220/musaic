@@ -28,6 +28,10 @@ const Content = styled.div`
       color: ${props => props.theme.colors.white};
     }
   }
+
+  p {
+    color: ${props => props.theme.colors.white};
+  }
 `
 
 const Header = ({ children }) => (
