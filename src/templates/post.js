@@ -59,6 +59,7 @@ const Post = ({ pageContext: { slug, prev, next }, data: { mdx: postNode } }) =>
         <SEO postPath={slug} postNode={postNode} article />
         <Header>
           <Link to="/">{config.siteTitle}</Link>
+          <p>A place for music nerds</p>  
         </Header>
         <Content>
           <Title>{post.title}</Title>
