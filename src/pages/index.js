@@ -51,7 +51,7 @@ const IndexPage = ({
       <Hero>
         <h1>Musaic</h1>
         <p>
-          For all music lovers and not only. Just a place to through some thoughts.   
+          For all music lovers and not only. Just a place to put some thoughts down.   
         </p>
         <Link to="/contact">
           <Button big>
