@@ -25,7 +25,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-mdx',
+      resolve: 'gatsby-plugin-mdx',
       options: {
         gatsbyRemarkPlugins: [
           {
@@ -52,6 +52,7 @@ module.exports = {
             },
           },
         ],
+        plugins: [`gatsby-remark-images`, `gatsby-remark-autolink-headers`],
       },
     },
     'gatsby-plugin-catch-links',

@@ -43,7 +43,7 @@ const Hero = styled.div`
 
 const IndexPage = ({
   data: {
-    allMdx: { edges: postEdges },
+    allMdx: { nodes: posts },
   },
 }) => (
   <Layout>
@@ -51,7 +51,7 @@ const IndexPage = ({
       <Hero>
         <h1>Musaic</h1>
         <p>
-          For all music lovers and not only. Just a place to put some thoughts down.   
+        A place for my random musical opinions and rants.
         </p>
         <Link to="/contact">
           <Button big>
@@ -64,15 +64,15 @@ const IndexPage = ({
       </Hero>
       <Content>
         <SectionTitle>Latest stories</SectionTitle>
-        {postEdges.map(post => (
+        {posts.map(post => (
           <Article
-            title={post.node.frontmatter.title}
-            date={post.node.frontmatter.date}
-            excerpt={post.node.excerpt}
-            timeToRead={post.node.timeToRead}
-            slug={post.node.fields.slug}
-            categories={post.node.frontmatter.categories}
-            key={post.node.fields.slug}
+            title={post.frontmatter.title}
+            date={post.frontmatter.date}
+            excerpt={post.excerpt}
+            timeToRead={post.timeToRead}
+            slug={post.fields.slug}
+            categories={post.frontmatter.categories}
+            key={post.fields.slug}
           />
         ))}
       </Content>
@@ -85,7 +85,7 @@ export default IndexPage
 IndexPage.propTypes = {
   data: PropTypes.shape({
     allMdx: PropTypes.shape({
-      edges: PropTypes.array.isRequired,
+      nodes: PropTypes.array.isRequired,
     }),
   }).isRequired,
 }
@@ -93,19 +93,17 @@ IndexPage.propTypes = {
 export const IndexQuery = graphql`
   query IndexQuery {
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            date(formatString: "MM/DD/YYYY")
-            categories
-          }
-          excerpt(pruneLength: 200)
-          timeToRead
+      nodes {
+        fields {
+          slug
         }
+        frontmatter {
+          title
+          date(formatString: "MM/DD/YYYY")
+          categories
+        }
+        excerpt(pruneLength: 200)
+        timeToRead
       }
     }
   }

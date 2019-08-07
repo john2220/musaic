@@ -3,8 +3,8 @@ import { lighten } from 'polished'
 const colors = {
   // primary: '#d02e77', 
   // primaryLight: lighten(0.05, '#d02e77'),
-  primary: '#2d8ddf', 
-  primaryLight: lighten(0.05, '#2d8ddf'),
+  primary: '#2ed2ac', 
+  primaryLight: lighten(0.05, '#2ed2ac'),
   bg: 'white', // Background color
   grey: {
     dark: 'rgba(0, 0, 0, 0.9)',
